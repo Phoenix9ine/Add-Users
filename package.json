@@ -1,0 +1,19 @@
+{
+  "name": "create-staff-api",
+  "version": "1.0.0",
+  "description": "Vercel API for hotel admin to create staff in Supabase",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}
