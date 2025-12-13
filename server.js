@@ -88,14 +88,17 @@ app.post("/create-staff", async (req, res) => {
 
     // --------- INSERT PROFILE (with hotel_id and role) ---------
     const { error: profileInsertError } = await adminSupabase
-      .from("profiles")
-      .insert({
-        id: newUserId,
-        email,
-        role,
-        full_name,
-        hotel_id,
-      });
+  .from("profiles")
+  .insert({
+    id: newUserId,
+    email,
+    role,
+    full_name,
+    hotel_id,
+  }, {
+    returning: "minimal",
+    force: true // <<< bypass all RLS policies safely when using service key
+  });
 
     if (profileInsertError) {
       console.error("Profile insert failed for user:", newUserId, profileInsertError);
